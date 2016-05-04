@@ -1,11 +1,12 @@
 source "https://rubygems.org"
 
-ruby '2.2.3'
+ruby '2.3.0'
 
 gem 'sinatra'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
 gem 'rspec'
+gem 'database_cleaner'
 
 group :development, :testing do
   gem 'capybara'

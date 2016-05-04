@@ -2,6 +2,9 @@
 
 ENV['RACK_ENV'] = 'test'
 
+require 'database_cleaner'
+
+
 require File.join(File.dirname(__FILE__), '..', './app/app.rb')
 
 require 'capybara'
@@ -51,6 +54,19 @@ RSpec.configure do |config|
     # a real object. This is generally recommended, and will default to
     # `true` in RSpec 4.
     mocks.verify_partial_doubles = true
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
   end
 
 # The settings below are suggested to provide a good initial experience
