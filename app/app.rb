@@ -17,10 +17,15 @@ class BookmarkManager < Sinatra::Base
   	erb :'links/new'
   end
 
+  get '/links/shopping' do
+    @linked_tags = Link.all(:link_tags => {:tag_id => 2})
+    erb :'links/shopping'
+  end
+
   post '/links' do
     link = Link.new(url: params[:url], title: params[:title])
     tag = Tag.create(name: params[:tags])
-    link.tags << tag 
+    link.tags << tag
     link.save
   	redirect '/links'
   end
