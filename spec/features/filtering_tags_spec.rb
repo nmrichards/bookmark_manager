@@ -14,6 +14,13 @@ feature 'Filter tags' do
     visit '/tags/Shopping'
     expect(page).to have_content('Amazon')
     expect(page).not_to have_content('Hulu')
+  end
 
+  scenario 'displays multiple tags on a bookmark' do 
+    visit '/links/new'
+    fill_in :tags, with: 'Media Entertainment'
+    click_button 'Submit'
+    link = Link.first
+    expect(link.tags.map(&:name)).to include('Media', 'Entertainment')
   end
 end
