@@ -11,6 +11,7 @@ gem "dm-postgres-adapter"
 gem "dm-transactions"
 gem 'pg'
 gem 'rspec'
+gem 'rake'
 # gem "rails"
 
 group :test do
