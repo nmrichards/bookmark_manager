@@ -15,9 +15,12 @@ class W4BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    tag = Tag.create(tag_name: params[:tag])
     link = Link.create(title: params[:title], url: params[:url])
-    link.tags << tag
+    tags = params[:tag].split(", ")
+    tags.each do |t|
+      tag = Tag.create(tag_name: t)
+      link.tags << tag
+    end
     link.save
     redirect to('/links')
   end

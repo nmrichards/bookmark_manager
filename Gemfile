@@ -10,6 +10,7 @@ gem "data_mapper"
 gem "dm-postgres-adapter"
 gem "dm-transactions"
 gem 'pg'
+gem 'rspec'
 # gem "rails"
 
 group :test do
