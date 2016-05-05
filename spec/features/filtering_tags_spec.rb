@@ -11,7 +11,7 @@ feature 'Filter tags' do
     fill_in :url, with: 'www.hulu.com'
     fill_in :tags, with: 'Media'
     click_button "Submit"
-    visit '/links/shopping'
+    visit '/tags/Shopping'
     expect(page).to have_content('Amazon')
     expect(page).not_to have_content('Hulu')
 
