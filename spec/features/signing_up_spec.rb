@@ -7,4 +7,9 @@ feature "signing up" do
     # expect(user.email).to eq 'email'
     #expect { User.create(name: 'amy', username: 'amynic', password: 'password', email: 'email') }.to change { User.count }.by(1)
   end
+
+  scenario 'password confirmation on sign up' do
+    expect { sign_up_wrong }.to change(User, :count).by(0)
+    expect(page).not_to have_content "Hello my_email_address!"
+  end
 end
