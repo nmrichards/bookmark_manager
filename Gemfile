@@ -9,6 +9,7 @@ gem 'database_cleaner'
 gem 'rspec'
 gem 'rspec-sinatra'
 gem 'capybara'
+gem 'rake'
 
 group :test do
   gem 'rubocop-rspec'
