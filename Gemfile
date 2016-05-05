@@ -12,6 +12,7 @@ gem "dm-transactions"
 gem 'pg'
 gem 'rspec'
 gem 'rake'
+gem 'bcrypt'
 # gem "rails"
 
 group :test do
