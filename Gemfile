@@ -10,6 +10,7 @@ gem 'rspec'
 gem 'rspec-sinatra'
 gem 'capybara'
 gem 'rake'
+gem 'bcrypt'
 
 group :test do
   gem 'rubocop-rspec'

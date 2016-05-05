@@ -5,3 +5,10 @@ def add_link
   fill_in :tags, with: 'Shopping'
   click_button "Submit"
 end
+
+def sign_up
+  visit '/users/new'
+  fill_in :email, with: 'johnsmith@gmail.com'
+  fill_in :password, with: 'oranges!'
+  click_button 'Sign up'
+end
