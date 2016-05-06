@@ -16,7 +16,7 @@ feature 'Filter tags' do
     expect(page).not_to have_content('Hulu')
   end
 
-  scenario 'displays multiple tags on a bookmark' do 
+  scenario 'displays multiple tags on a bookmark' do
     visit '/links/new'
     fill_in :tags, with: 'Media Entertainment'
     click_button 'Submit'

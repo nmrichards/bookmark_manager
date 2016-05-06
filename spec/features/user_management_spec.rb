@@ -6,11 +6,13 @@ feature 'User sign up' do
   end
 
   scenario "A user won't be created if passwords are mismatched" do
-    visit '/users/new'
-    fill_in :email, with: 'johnsmith@gmail.com'
-    fill_in :password, with: 'oranges!'
-    fill_in :password_confirmation, with: 'apples?'
-    click_button 'Sign up'
+    sign_up('apples!')
     expect(User.count).to eq 0
+  end
+
+  scenario "mismatched passwords stays on new user page" do
+    sign_up('apples!')
+    expect(current_path).to eq('/users')
+    expect(page).to have_content("Password and confirmation password do not match")
   end
 end

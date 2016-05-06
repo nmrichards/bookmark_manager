@@ -8,7 +8,9 @@
     <% if current_user %>
       Welcome, <%=current_user.email %>
       <% end %>
+      <% if flash[:password] %>
+        <%="#{flash[:password]}"%>
+      <% end %>
       <%= yield %>
   </body>
 </html>
-    
