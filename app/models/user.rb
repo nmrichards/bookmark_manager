@@ -11,8 +11,6 @@ class User
   property :email, String
 	property :password_digest, Text
 
-
-
   validates_confirmation_of :password
 
   def password=(password)

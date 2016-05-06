@@ -13,7 +13,7 @@ gem 'pg'
 gem 'rspec'
 gem 'rake'
 gem 'bcrypt'
-# gem "rails"
+gem 'sinatra-flash'
 
 group :test do
   gem 'database_cleaner'
