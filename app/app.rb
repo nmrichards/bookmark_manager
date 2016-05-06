@@ -28,15 +28,17 @@ class W4BookmarkManager < Sinatra::Base
   end
 
   post '/users' do
+    flash.discard
     @user = User.create(email: params[:email],
       password: params[:password], password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
       redirect to('/links')
     else
-      flash.now[:bad_fields] = "Registration failed. Please check fields."
+      flash.now[:errors] = @user.errors.full_messages
       erb(:'users/new')
     end
+
   end
 
   post '/links' do
