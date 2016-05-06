@@ -34,7 +34,7 @@ class W4BookmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect to('/links')
     else
-      flash.now[:wrong_password] = "Password and confirmation password do not match"
+      flash.now[:bad_fields] = "Registration failed. Please check fields."
       erb(:'users/new')
     end
   end

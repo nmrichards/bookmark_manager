@@ -11,7 +11,7 @@ def sign_up
   expect(page.status_code).to eq(200)
   fill_in :password, with: 'password'
   fill_in :password_confirmation, with: 'password'
-  fill_in :email, with: 'my_email_address'
+  fill_in :email, with: 'batman@gmail.com'
   click_button 'Signup'
 end
 
@@ -20,6 +20,22 @@ def sign_up_wrong
   expect(page.status_code).to eq(200)
   fill_in :password, with: 'password'
   fill_in :password_confirmation, with: 'wrong_password'
-  fill_in :email, with: 'my_email_address'
+  fill_in :email, with: 'batman@gmail.com'
+  click_button 'Signup'
+end
+
+def no_email
+  visit "/users/new"
+  fill_in :password, with: 'password'
+  fill_in :password_confirmation, with: 'password'
+  fill_in :email, with: nil
+  click_button 'Signup'
+end
+
+def wrong_email
+  visit "/users/new"
+  fill_in :password, with: 'password'
+  fill_in :password_confirmation, with: 'password'
+  fill_in :email, with: 'asdf@asdf'
   click_button 'Signup'
 end
